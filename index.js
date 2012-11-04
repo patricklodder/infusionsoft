@@ -42,6 +42,11 @@ iSDK.prototype.findCon = function(cId, rFields, callback) {
 	this.methodCaller("ContactService.load", ca, callback);
 };
 
+iSDK.prototype.campAssign = function (cId, campId, callback) {
+	var ca = [this.apiKey, cId, campId]
+	this.methodCaller("ContactService.addToCampaign", ca, callback);
+};
+
 iSDK.prototype.grpAssign = function(cId, gId, callback) {
 	var ca = [this.apiKey, cId, gId];
 	this.methodCaller('ContactService.addToGroup', ca, callback);
