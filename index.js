@@ -123,6 +123,10 @@ iSDK.prototype.addManualPayment = function (invoiceId, amt, paymentDate, payment
 }; 
 
 
+iSDK.prototype.placeOrder = function (contactId, creditCardId, payPlanId, productIds, subscriptionIds, processSpecials, promocodes, callback) {
+	var ca = [this.apiKey, contactId, creditCardId, payPlanId, productIds || [], subscriptionIds || [], (processSpecials === true), promocodes || []];
+	this.methodCaller('OrderService.placeOrder', ca, callback);
+};
 
 iSDK.prototype.findProduct = function (id, rFields, callback) {
 	this.dsQuery('Product', 1, 0, {'Id': id}, rFields, callback);
