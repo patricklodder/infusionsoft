@@ -127,6 +127,10 @@ iSDK.prototype.placeOrder = function (contactId, creditCardId, payPlanId, produc
 	var ca = [this.apiKey, contactId, creditCardId, payPlanId, productIds || [], subscriptionIds || [], (processSpecials === true), promocodes || []];
 	this.methodCaller('OrderService.placeOrder', ca, callback);
 };
+iSDK.prototype.createInvoiceForRecurring = function (recurringOrderId, callback) {
+	var ca = [this.apiKey, recurringOrderId];
+	this.methodCaller('InvoiceService.createInvoiceForRecurring', ca, callback);
+};
 
 iSDK.prototype.findProduct = function (id, rFields, callback) {
 	this.dsQuery('Product', 1, 0, {'Id': id}, rFields, callback);
