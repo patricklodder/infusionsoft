@@ -9,6 +9,8 @@ var iSDK = module.exports = function (appname, apikey, handler) {
 	
 };
 
+iSDK.Float = xmlrpc.Float;
+
 iSDK.prototype.methodCaller = function (service, data, callback) {
 	var cb = (typeof(callback) === 'function') ? callback : function(){};
 	this.client.methodCall(service, data, function(error, value){
@@ -113,12 +115,12 @@ iSDK.prototype.createBlankOrder = function (contactId, description, date, leadAf
 }; 
 
 iSDK.prototype.addOrderItem = function (invoiceId, productId, type, price, quantity, description, notes, callback) {
-	var ca = [this.apiKey, invoiceId, productId, type, price, quantity, description || '', notes || ''];
+	var ca = [this.apiKey, invoiceId, productId, type, new xmlrpc.Float(price), quantity, description || '', notes || ''];
 	this.methodCaller('InvoiceService.addOrderItem', ca, callback);
 }; 
 
 iSDK.prototype.addManualPayment = function (invoiceId, amt, paymentDate, paymentType, paymentDescription, bypassCommissions, callback) {
-	var ca = [this.apiKey, invoiceId, amt, paymentDate, paymentType, paymentDescription, bypassCommissions || false];
+	var ca = [this.apiKey, invoiceId, new xmlrpc.Float(amt), paymentDate, paymentType, paymentDescription, bypassCommissions || false];
 	this.methodCaller('InvoiceService.addManualPayment', ca, callback);
 }; 
 
