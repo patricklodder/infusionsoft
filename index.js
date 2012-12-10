@@ -122,14 +122,19 @@ iSDK.prototype.addManualPayment = function (invoiceId, amt, paymentDate, payment
 	this.methodCaller('InvoiceService.addManualPayment', ca, callback);
 }; 
 
-
-iSDK.prototype.placeOrder = function (contactId, creditCardId, payPlanId, productIds, subscriptionIds, processSpecials, promocodes, callback) {
-	var ca = [this.apiKey, contactId, creditCardId, payPlanId, productIds || [], subscriptionIds || [], (processSpecials === true), promocodes || []];
-	this.methodCaller('OrderService.placeOrder', ca, callback);
-};
 iSDK.prototype.createInvoiceForRecurring = function (recurringOrderId, callback) {
 	var ca = [this.apiKey, recurringOrderId];
 	this.methodCaller('InvoiceService.createInvoiceForRecurring', ca, callback);
+};
+
+iSDK.prototype.calculateAmountOwed = function (invoiceId, callback) {
+	var ca = [this.apiKey, invoiceId];
+	this.methodCaller('InvoiceService.calculateAmountOwed', ca, callback);
+};
+ 
+iSDK.prototype.placeOrder = function (contactId, creditCardId, payPlanId, productIds, subscriptionIds, processSpecials, promocodes, callback) {
+	var ca = [this.apiKey, contactId, creditCardId, payPlanId, productIds || [], subscriptionIds || [], (processSpecials === true), promocodes || []];
+	this.methodCaller('OrderService.placeOrder', ca, callback);
 };
 
 iSDK.prototype.findProduct = function (id, rFields, callback) {
