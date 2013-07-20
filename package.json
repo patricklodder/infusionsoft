@@ -3,7 +3,7 @@
     "version": "0.1.6",
     "description": "InfusionSoft node.js SDK",
     "contributors": [{ "name": "Patrick Lodder", "email": "plodder@intellibiz.org" }],
-    "homepage": "https://github.com/patricklodder/infusion",
+    "homepage": "https://github.com/patricklodder/infusionsoft",
     "engines": { "node": ">= 0.6.x" },
     "dependencies": {
         "xmlrpc": "1.0.2"
