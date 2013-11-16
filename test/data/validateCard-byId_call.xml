@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>InvoiceService.validateCreditCard</methodName><params><param><value><string>key</string></value></param><param><value><int>11</int></value></param></params></methodCall>

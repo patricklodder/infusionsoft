@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>APIEmailService.optIn</methodName><params><param><value><string>key</string></value></param><param><value><string>test@email.com</string></value></param><param><value><string>Test OptIn</string></value></param></params></methodCall>

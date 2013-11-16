@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>ContactService.addToCampaign</methodName><params><param><value><string>key</string></value></param><param><value><int>1</int></value></param><param><value><int>2</int></value></param></params></methodCall>
