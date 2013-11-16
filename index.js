@@ -6,7 +6,7 @@ var iSDK = module.exports = function (appname, apikey, handler) {
 	this.apiKey = apikey;
 	this.responseHandler = handler;
 	this.client = xmlrpc.createSecureClient('https://' + this.appName + '.infusionsoft.com/api/xmlrpc');
-	
+
 };
 
 iSDK.prototype.methodCaller = function (service, data, callback) {
@@ -58,7 +58,7 @@ iSDK.prototype.grpRemove = function (cId, gId, callback) {
 
 iSDK.prototype.optIn = function (email, reason, callback) {
 	var ca = [this.apiKey, email, reason || 'API opt-in'];
-   	this.methodCaller('APIEmailService.optIn', ca, callback);
+	this.methodCaller('APIEmailService.optIn', ca, callback);
 };
 
 iSDK.prototype.optOut = function (email, reason, callback) {
@@ -77,23 +77,26 @@ iSDK.prototype.dsAdd = function (tableName, fields, callback) {
 };
 
 iSDK.prototype.dsDelete = function (tableName, id, callback){
-	var i, ca;
-	if (!(i = parseInt(id))) {callback('ID should be numerical'); return;}
-	ca = [this.apiKey, tableName, i];
+	id = (typeof(id) === 'number') ? id : parseInt(id, 10);
+	if (isNaN(id)) return callback(new Error('id should be an integer'));
+
+	var ca = [this.apiKey, tableName, id];
 	this.methodCaller('DataService.delete', ca, callback);
 };
 
 iSDK.prototype.dsUpdate = function (tableName, id, uFields, callback) {
-	var i, ca;
-	if (!(i = parseInt(id))) {callback('ID should be numerical'); return;}
-	ca = [this.apiKey, tableName, i, uFields];
+	id = (typeof(id) === 'number') ? id : parseInt(id, 10);
+	if (isNaN(id)) return callback(new Error('id should be an integer'));
+
+	var ca = [this.apiKey, tableName, id, uFields];
 	this.methodCaller('DataService.update', ca, callback);
 };
 
 iSDK.prototype.dsLoad = function (tableName, id, callback) {
-	var i, ca;
-	if (!(i = parseInt(id))) {callback('ID should be numerical'); return;}
-	ca = [this.apiKey, tableName, i];
+	id = (typeof(id) === 'number') ? id : parseInt(id, 10);
+	if (isNaN(id)) return callback(new Error('id should be an integer'));
+
+	var ca = [this.apiKey, tableName, id];
 	this.methodCaller('DataService.load', ca, callback);
 };
 
@@ -110,17 +113,17 @@ iSDK.prototype.dsQuery = function (tableName, limit, page, query, rFields, callb
 iSDK.prototype.createBlankOrder = function (contactId, description, date, leadAffiliateId, saleAffiliateId, callback) {
 	var ca = [this.apiKey, contactId, description, date, leadAffiliateId || 0, saleAffiliateId || 0];
 	this.methodCaller('InvoiceService.createBlankOrder', ca, callback);
-}; 
+};
 
 iSDK.prototype.addOrderItem = function (invoiceId, productId, type, price, quantity, description, notes, callback) {
 	var ca = [this.apiKey, invoiceId, productId, type, price, quantity, description || '', notes || ''];
 	this.methodCaller('InvoiceService.addOrderItem', ca, callback);
-}; 
+};
 
 iSDK.prototype.addManualPayment = function (invoiceId, amt, paymentDate, paymentType, paymentDescription, bypassCommissions, callback) {
 	var ca = [this.apiKey, invoiceId, amt, paymentDate, paymentType, paymentDescription, bypassCommissions || false];
 	this.methodCaller('InvoiceService.addManualPayment', ca, callback);
-}; 
+};
 
 iSDK.prototype.createInvoiceForRecurring = function (recurringOrderId, callback) {
 	var ca = [this.apiKey, recurringOrderId];
@@ -131,7 +134,7 @@ iSDK.prototype.calculateAmountOwed = function (invoiceId, callback) {
 	var ca = [this.apiKey, invoiceId];
 	this.methodCaller('InvoiceService.calculateAmountOwed', ca, callback);
 };
- 
+
 iSDK.prototype.placeOrder = function (contactId, creditCardId, payPlanId, productIds, subscriptionIds, processSpecials, promocodes, callback) {
 	var ca = [this.apiKey, contactId, creditCardId, payPlanId, productIds || [], subscriptionIds || [], (processSpecials === true), promocodes || []];
 	this.methodCaller('OrderService.placeOrder', ca, callback);
