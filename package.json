@@ -1,11 +1,11 @@
 {
     "name": "infusionsoft",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "InfusionSoft node.js SDK",
     "contributors": [{ "name": "Patrick Lodder", "email": "plodder@intellibiz.org" }],
     "homepage": "https://github.com/patricklodder/infusionsoft",
     "engines": { "node": ">= 0.6.x" },
     "dependencies": {
-        "xmlrpc": "1.0.2"
+        "xmlrpc": "1.1.1"
     }
 }
