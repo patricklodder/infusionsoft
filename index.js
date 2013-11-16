@@ -31,6 +31,11 @@ iSDK.prototype.updateCon = function (cId, cMap, callback){
 	this.methodCaller('ContactService.update', ca, callback);
 };
 
+iSDK.prototype.addWithDupCheck = iSDK.prototype.upsertCon = function (data, dupCheckType, callback) {
+	var ca = [this.apiKey, data, dupCheckType];
+	this.methodCaller('ContactService.addWithDupCheck', ca, callback);
+};
+
 iSDK.prototype.findByEmail = function (email, fMap, callback) {
 	var ca = [this.apiKey, email, fMap];
 	this.methodCaller('ContactService.findByEmail', ca, callback);
