@@ -6,6 +6,6 @@
     "homepage": "https://github.com/patricklodder/infusionsoft",
     "engines": { "node": ">= 0.6.x" },
     "dependencies": {
-        "xmlrpc": "1.1.1"
+        "xmlrpc": "1.2.0"
     }
 }

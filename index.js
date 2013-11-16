@@ -1,4 +1,5 @@
 var xmlrpc = require('xmlrpc');
+var types = require('./lib/types');
 
 var iSDK = module.exports = function (appname, apikey, handler) {
 
@@ -121,12 +122,12 @@ iSDK.prototype.createBlankOrder = function (contactId, description, date, leadAf
 };
 
 iSDK.prototype.addOrderItem = function (invoiceId, productId, type, price, quantity, description, notes, callback) {
-	var ca = [this.apiKey, invoiceId, productId, type, price, quantity, description || '', notes || ''];
+	var ca = [this.apiKey, invoiceId, productId, type, new types.Double(price), quantity, description || '', notes || ''];
 	this.methodCaller('InvoiceService.addOrderItem', ca, callback);
 };
 
 iSDK.prototype.addManualPayment = function (invoiceId, amt, paymentDate, paymentType, paymentDescription, bypassCommissions, callback) {
-	var ca = [this.apiKey, invoiceId, amt, paymentDate, paymentType, paymentDescription, bypassCommissions || false];
+	var ca = [this.apiKey, invoiceId, new types.Double(amt), paymentDate, paymentType, paymentDescription, bypassCommissions || false];
 	this.methodCaller('InvoiceService.addManualPayment', ca, callback);
 };
 
@@ -176,3 +177,5 @@ iSDK.prototype.locateCard = function (contactId, lastFour, callback) {
 	var ca = [this.apiKey, contactId, lastFour];
 	this.methodCaller('InvoiceService.locateExistingCard', ca, callback);
 };
+
+iSDK.types = types;
