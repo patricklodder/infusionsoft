@@ -153,3 +153,15 @@ iSDK.prototype.runAS = function (cid, asid, callback) {
 	var ca = [this.apiKey, cid, asid];
 	this.methodCaller('ContactService.runActionSequence', ca, callback);
 };
+
+iSDK.prototype.validateCard = function (card, callback) {
+	var t = typeof(card);
+	if (!card || (t !== 'number' && t !== 'object')) callback(new Error('Expect first argument to be a number or an object'));
+	var ca = [this.apiKey, card];
+	this.methodCaller('InvoiceService.validateCreditCard', ca, callback);
+};
+
+iSDK.prototype.locateCard = function (contactId, lastFour, callback) {
+	var ca = [this.apiKey, contactId, lastFour];
+	this.methodCaller('InvoiceService.locateExistingCard', ca, callback);
+};
