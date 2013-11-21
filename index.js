@@ -154,6 +154,11 @@ iSDK.prototype.runAS = function (cid, asid, callback) {
 	this.methodCaller('ContactService.runActionSequence', ca, callback);
 };
 
+iSDK.prototype.getEmailTemplate = function (id, callback) {
+	var ca = [this.apiKey, id];
+	this.methodCaller('APIEmailService.getEmailTemplate', ca, callback);
+};
+
 iSDK.prototype.validateCard = function (card, callback) {
 	var t = typeof(card);
 	if (!card || (t !== 'number' && t !== 'object')) callback(new Error('Expect first argument to be a number or an object'));
