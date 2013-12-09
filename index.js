@@ -159,6 +159,12 @@ iSDK.prototype.getEmailTemplate = function (id, callback) {
 	this.methodCaller('APIEmailService.getEmailTemplate', ca, callback);
 };
 
+iSDK.prototype.sendEmail = function (clist, fromAddr, toAddr, ccAddr, bccAddr, contentType, subject, htmlBody, textBody, templateId, callback) {
+	var ca = [this.apiKey, clist, fromAddr, toAddr, ccAddr, bccAddr, contentType, subject, htmlBody, textBody];
+	if (typeof(templateId) === 'number') ca.push(templateId);
+	this.methodCaller('APIEmailService.sendEmail', ca, callback);
+}
+
 iSDK.prototype.validateCard = function (card, callback) {
 	var t = typeof(card);
 	if (!card || (t !== 'number' && t !== 'object')) callback(new Error('Expect first argument to be a number or an object'));
