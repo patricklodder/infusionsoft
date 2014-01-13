@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>ContactService.load</methodName><params><param><value><string>key</string></value></param><param><value><int>1</int></value></param><param><value><array><data><value><string>Id</string></value><value><string>FirstName</string></value><value><string>LastName</string></value></data></array></value></param></params></methodCall>

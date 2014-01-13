@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>InvoiceService.locateExistingCard</methodName><params><param><value><string>key</string></value></param><param><value><int>1</int></value></param><param><value><string>7357</string></value></param></params></methodCall>

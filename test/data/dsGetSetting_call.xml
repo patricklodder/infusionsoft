@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>DataService.getAppSetting</methodName><params><param><value><string>key</string></value></param><param><value><string>Contact</string></value></param><param><value><string>optiontypes</string></value></param></params></methodCall>
