@@ -1,0 +1,1 @@
+<?xml version="1.0"?><methodCall><methodName>APIEmailService.getOptStatus</methodName><params><param><value><string>key</string></value></param><param><value><string>test1@email.com</string></value></param></params></methodCall>

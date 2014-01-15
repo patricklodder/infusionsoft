@@ -174,19 +174,19 @@ vows.describe('ISDK Calls').addBatch({
     },
     "validateCard (by cardId)": {
       topic: function (isdk) {
-       isdk.validateCard(11,this.callback);
+       isdk.validateCard(11, this.callback);
       },
       "must match xml": assertXml('validateCard-byId_call')
     },
     "validateCard": {
       topic: function (isdk) {
-        isdk.validateCard({CardNumber: '7357', ContactId: 1, ExpirationMonth: '13', ExpirationYear: '1991', CVV2: '123', CardType: 'MasterCard'},this.callback);
+        isdk.validateCard({CardNumber: '7357', ContactId: 1, ExpirationMonth: '13', ExpirationYear: '1991', CVV2: '123', CardType: 'MasterCard'}, this.callback);
       },
       "must match xml": assertXml('validateCard_call')
     },
     "locateCard": {
       topic: function (isdk) {
-        isdk.locateCard(1, '7357',this.callback);
+        isdk.locateCard(1, '7357', this.callback);
       },
       "must match xml": assertXml('locateCard_call')
     },
@@ -201,6 +201,12 @@ vows.describe('ISDK Calls').addBatch({
         isdk.sendEmail([1],'test1@email.com','~Contact.Email~','test2@email.com','test3@email.com','Multipart','subject','<html />', 'text', 1, this.callback);
       },
       "must match xml": assertXml('sendEmail_call')
+    },
+    "optStatus": {
+      topic: function (isdk) {
+        isdk.optStatus('test1@email.com', this.callback);
+      },
+      "must match xml": assertXml('optStatus_call')
     }
   }
 }).export(module);
@@ -212,4 +218,3 @@ function assertXml(fileName) {
     assert.strictEqual(result, xml);
   };
 }
-

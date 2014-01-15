@@ -164,7 +164,12 @@ iSDK.prototype.sendEmail = function (clist, fromAddr, toAddr, ccAddr, bccAddr, c
 	var ca = [this.apiKey, clist, fromAddr, toAddr, ccAddr, bccAddr, contentType, subject, htmlBody, textBody];
 	if (typeof(templateId) === 'number') ca.push(templateId);
 	this.methodCaller('APIEmailService.sendEmail', ca, callback);
-}
+};
+
+iSDK.prototype.optStatus = function (email, callback) {
+	var ca = [this.apiKey, email];
+	this.methodCaller('APIEmailService.getOptStatus', ca, callback);
+};
 
 iSDK.prototype.validateCard = function (card, callback) {
 	var t = typeof(card);
