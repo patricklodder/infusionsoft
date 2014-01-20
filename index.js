@@ -5,16 +5,14 @@ var iSDK = module.exports = function (appname, apikey, handler) {
 
 	this.appName = appname;
 	this.apiKey = apikey;
-	this.responseHandler = handler;
+	this.responseHandler = handler || function () {};
 	this.client = xmlrpc.createSecureClient('https://' + this.appName + '.infusionsoft.com/api/xmlrpc');
 
 };
 
 iSDK.prototype.methodCaller = function (service, data, callback) {
-	var cb = (typeof(callback) === 'function') ? callback : function(){};
-	this.client.methodCall(service, data, function(error, value){
-		cb(error, value);
-	});
+	var cb = (typeof(callback) === 'function') ? callback : this.responseHandler;
+	this.client.methodCall(service, data, cb);
 };
 
 iSDK.prototype.appEcho = function (txt, callback) {
