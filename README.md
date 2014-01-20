@@ -15,7 +15,7 @@ npm install infusionsoft
 ### Usage ###
 ```javascript
 var iSDK = require('infusionsoft');
-var client = new iSDK('app_name', 'api_key);
+var client = new iSDK('app_name', 'api_key');
 ```
 
 ### Implemented methods ###
