@@ -5,7 +5,7 @@ InfusionSoft node.js SDK.
 
 [![npm](https://nodei.co/npm/infusionsoft.png?downloads=true)](https://npmjs.org/package/infusionsoft)
 
-[![Travis](https://travis-ci.org/patricklodder/infusionsoft.png)](https://travis-ci.org/patricklodder/infusionsoft)
+[![Travis](https://travis-ci.org/patricklodder/infusionsoft.png)](https://travis-ci.org/patricklodder/infusionsoft) [![Dependency Status](https://david-dm.org/patricklodder/infusionsoft.png?theme=shields.io)](https://david-dm.org/patricklodder/infusionsoft)
 
 ### Installation ###
 ```bash
