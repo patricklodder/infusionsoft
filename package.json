@@ -1,6 +1,6 @@
 {
     "name": "infusionsoft",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "InfusionSoft node.js SDK",
     "contributors": [{ "name": "Patrick Lodder", "email": "plodder@intellibiz.org" }],
     "homepage": "https://github.com/patricklodder/infusionsoft",
