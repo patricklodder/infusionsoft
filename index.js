@@ -56,7 +56,7 @@ iSDK.prototype.grpAssign = function (cId, gId, callback) {
 };
 
 iSDK.prototype.grpRemove = function (cId, gId, callback) {
-	ca = [this.apiKey, cId, gId];
+	var ca = [this.apiKey, cId, gId];
 	this.methodCaller('ContactService.removeFromGroup', ca, callback);
 };
 
