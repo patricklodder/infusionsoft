@@ -207,6 +207,12 @@ vows.describe('ISDK Calls').addBatch({
         isdk.optStatus('test1@email.com', this.callback);
       },
       "must match xml": assertXml('optStatus_call')
+    },
+    "mergeCon": {
+      topic: function (isdk) {
+        isdk.mergeCon(1, 13, this.callback);
+      },
+      "must match xml": assertXml('mergeCon_call')
     }
   }
 }).export(module);

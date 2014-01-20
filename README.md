@@ -47,6 +47,8 @@ var client = new iSDK('app_name', 'api_key');
 
 **ContactService.load**: ```client.findCon(contactId, fieldList, callback)```
 
+**ContactService.merge**: ```client.mergeCon(contactId, duplicateId, callback)```
+
 **ContactService.removeFromGroup**: ```client.grpRemove(contactId, groupId, callback)```
 
 **ContactService.runActionSequence**: ```client.runAS(contactId, seqId, callback)```

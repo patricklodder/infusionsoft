@@ -60,6 +60,11 @@ iSDK.prototype.grpRemove = function (cId, gId, callback) {
 	this.methodCaller('ContactService.removeFromGroup', ca, callback);
 };
 
+iSDK.prototype.mergeCon = function (cId, dupId, callback) {
+	var ca = [this.apiKey, cId, dupId];
+	this.methodCaller('ContactService.merge', ca, callback);
+};
+
 iSDK.prototype.optIn = function (email, reason, callback) {
 	var ca = [this.apiKey, email, reason || 'API opt-in'];
 	this.methodCaller('APIEmailService.optIn', ca, callback);
