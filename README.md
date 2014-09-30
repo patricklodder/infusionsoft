@@ -73,6 +73,7 @@ var client = new iSDK('app_name', 'api_key');
 
 **DataService.query**: ```client.dsQuery(tableName, limit, page, query, fieldMap, callback)```
 
+**DataService.query**: ```client.dsQuery(tableName, limit, page, query, fieldMap, orderBy, ascending, callback)```
 
 
 **InvoiceService.addManualPayment**: ```client.addManualPayment(invoiceId, amount, paymentDate, paymentType, paymentDescription, bypassCommissions, callback)```

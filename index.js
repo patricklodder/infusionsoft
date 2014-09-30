@@ -114,8 +114,16 @@ iSDK.prototype.dsFind = function (tableName, limit, page, field, value, rFields,
 	this.methodCaller('DataService.findByField', ca, callback);
 };
 
-iSDK.prototype.dsQuery = function (tableName, limit, page, query, rFields, callback) {
-	var ca = [this.apiKey,tableName, limit, page, query, rFields];
+iSDK.prototype.dsQuery = function (tableName, limit, page, query, rFields, orderBy, ascending, callback) {
+	switch (arguments.length){
+		case 8:
+			var ca = [this.apiKey,tableName, limit, page, query, rFields, orderBy, ascending];
+			break;
+		case 6:
+			var ca = [this.apiKey,tableName, limit, page, query, rFields];
+			callback = orderBy;
+			break;
+	}
 	this.methodCaller('DataService.query', ca, callback);
 };
 
