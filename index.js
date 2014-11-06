@@ -194,4 +194,9 @@ iSDK.prototype.locateCard = function (contactId, lastFour, callback) {
 	this.methodCaller('InvoiceService.locateExistingCard', ca, callback);
 };
 
+iSDK.prototype.fsGoal = function(integration, name, contactId, callback){
+	var ca = [this.apiKey, integration, name, contactId];
+	this.methodCaller('FunnelService.achieveGoal', ca, callback);
+}
+
 iSDK.types = types;
