@@ -213,6 +213,12 @@ vows.describe('ISDK Calls').addBatch({
         isdk.mergeCon(1, 13, this.callback);
       },
       "must match xml": assertXml('mergeCon_call')
+    },
+    "achieveGoal": {
+      topic: function(isdk){
+        isdk.fsGoal('intname', 'callname', 1, this.callback);
+      },
+      "must match xml": assertXml('achieveGoal_call')
     }
   }
 }).export(module);
