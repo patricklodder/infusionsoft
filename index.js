@@ -85,6 +85,11 @@ iSDK.prototype.dsAdd = function (tableName, fields, callback) {
 	this.methodCaller('DataService.add', ca, callback);
 };
 
+iSDK.prototype.dsCount = function(tableName, query, callback) {
+    var ca = [this.apiKey, tableName, query];
+    this.methodCaller('DataService.count', ca, callback);
+};
+
 iSDK.prototype.dsDelete = function (tableName, id, callback){
 	id = (typeof(id) === 'number') ? id : parseInt(id, 10);
 	if (isNaN(id)) return callback(new Error('id should be an integer'));

@@ -59,6 +59,8 @@ var client = new iSDK('app_name', 'api_key');
 
 **DataService.add**: ```client.dsAdd(tableName, data, callback)```
 
+**DataService.count**: ```client.dsCount(tableName, query, callback)```
+
 **DataService.delete**: ```client.dsDelete(tableName, id, callback)```
 
 **DataService.echo**: ```client.appEcho(text, callback)```

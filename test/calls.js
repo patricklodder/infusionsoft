@@ -100,6 +100,12 @@ vows.describe('ISDK Calls').addBatch({
       },
       "must match xml": assertXml('dsAdd_call')
     },
+    "dsCount": {
+      topic: function (isdk) {
+          isdk.dsCount('Contact', {Email: 'test@example.com'}, this.callback);
+      },
+      "must match xml": assertXml('dsCount_call')
+    },
     "dsDelete": {
       topic: function (isdk) {
         isdk.dsDelete('Product', 4, this.callback);
