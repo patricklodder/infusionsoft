@@ -106,11 +106,11 @@ iSDK.prototype.dsUpdate = function (tableName, id, uFields, callback) {
 	this.methodCaller('DataService.update', ca, callback);
 };
 
-iSDK.prototype.dsLoad = function (tableName, id, callback) {
+iSDK.prototype.dsLoad = function (tableName, id, rFields, callback) {
 	id = (typeof(id) === 'number') ? id : parseInt(id, 10);
 	if (isNaN(id)) return callback(new Error('id should be an integer'));
 
-	var ca = [this.apiKey, tableName, id];
+	var ca = [this.apiKey, tableName, rFields, id];
 	this.methodCaller('DataService.load', ca, callback);
 };
 

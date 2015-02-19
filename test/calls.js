@@ -120,7 +120,7 @@ vows.describe('ISDK Calls').addBatch({
     },
     "dsLoad": {
       topic: function (isdk) {
-        isdk.dsLoad('Product', 4, this.callback);
+        isdk.dsLoad('Product', 4, ['Id', 'ProductPrice'], this.callback);
       },
       "must match xml": assertXml('dsLoad_call')
     },

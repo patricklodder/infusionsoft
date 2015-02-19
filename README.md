@@ -69,7 +69,7 @@ var client = new iSDK('app_name', 'api_key');
 
 **DataService.getAppSetting**: ```client.dsGetSetting(module, setting, callback)```
 
-**DataService.load**: ```client.dsLoad(tableName, id, callback)```
+**DataService.load**: ```client.dsLoad(tableName, id, fieldMap, callback)```
 
 **DataService.update**: ```client.dsUpdate(tableName, id, data, callback)```
 
