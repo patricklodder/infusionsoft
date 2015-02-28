@@ -124,6 +124,12 @@ vows.describe('ISDK Calls').addBatch({
       },
       "must match xml": assertXml('dsLoad_call')
     },
+    "dsLoad (without field spec)": {
+      topic: function (isdk) {
+        isdk.dsLoad('Product', 4, this.callback);
+      },
+      "must match xml": assertXml('dsLoadNoSpec_call')
+    },
     "dsFind": {
       topic: function (isdk) {
         isdk.dsFind('Product', 1, 0, 'ProductName', 'UpdatedTestProduct', ['Id', 'ProductPrice'], this.callback);
